@@ -1,0 +1,1 @@
+- [Vite watcher and Bun cache](vite-watcher-bun-cache.md) — exclude project-local Bun caches from Vite's watcher to avoid EMFILE on imported Replit projects.
