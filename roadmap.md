@@ -1,0 +1,3 @@
+- [ ] Build BuildTwin construction dashboard with responsive layout, interactive Three.js comparison, and Recharts analytics.
+- [ ] Add database-backed conversations and a streamed site-manager chat, including authenticated access and real thread URLs.
+- [ ] Verify rendering, chat/thread persistence flow, tests, lint, and latest build output.

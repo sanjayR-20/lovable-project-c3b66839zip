@@ -1,0 +1,41 @@
+Act as an expert frontend engineer and UI/UX designer. Build a complete, single-page React dashboard application called "BuildTwin" for construction engineers to compare 3D blueprints against actual site progress. 
+
+Visual Style & Theme:
+- Minimalistic, hyper-professional, dark mode UI (think Palantir or advanced aerospace software). 
+- Background: deep neutral-950, panels in neutral-900 with subtle neutral-800 borders.
+- Accent colors: Cyan/Teal for "Blueprint/Planned" data, Purple/Emerald for "Actual" data, and Red/Amber for "Delays/Discrepancies".
+- Use Tailwind CSS for all styling and ensure it is fully responsive.
+- Use 'lucide-react' for clean, modern icons.
+
+Layout Structure:
+Create a 3-column layout using Flexbox/Grid:
+1. Left Sidebar (w-64): Project navigation, Admin Controls (3D Discrepancy, Dev Rate, Settings), and a "Recent Logs" activity feed showing timestamps of site scans and discrepancy alerts.
+2. Center Main Area (flex-1): The core workspace split vertically.
+   - Top: A large 3D Viewer Canvas area.
+   - Bottom (h-64): An Analytics Panel for data visualization.
+3. Right Sidebar (w-80): An "AI Site Manager" chat interface.
+
+Feature Requirements:
+1. 3D Discrepancy Viewer (Center Top):
+- Build a custom 3D viewer using pure 'three' (Three.js). Do NOT use external .glb/.gltf files (to ensure the preview works immediately). Instead, build a mock building structure using BoxGeometries (foundation, 4 pillars, a roof).
+- Include 3 toggle buttons floating on top of the canvas: "Blueprint Only", "Site Scan Only", and "Discrepancy Overlay".
+- Blueprint mode: Render the building in transparent cyan wireframes.
+- Site Scan mode: Render the building in solid grey, but intentionally omit one pillar and the roof.
+- Discrepancy mode: Render both, but highlight the missing pillar/roof in translucent glowing red to show the delay.
+- Allow the user to drag to rotate the 3D scene.
+
+2. Analytics Panel (Center Bottom):
+- Use 'recharts' to create two distinct charts.
+- Chart 1 (AreaChart): "Rate of Development". Show 'Planned Progress' (Cyan) vs 'Actual Progress' (Purple) over a 6-week timeline.
+- Chart 2 (BarChart): "Current Phase Completion". A horizontal bar chart showing tasks (Foundation, Pillars, Slab, Plumbing) with completed (green) vs pending (dark grey) stacked bars.
+
+3. AI Site Manager (Right Sidebar):
+- A sticky chat interface for the engineer to talk to the AI.
+- Include a chat history showing the AI alerting the engineer: "Scan #42 completed. Detected a 2-day delay on Level 1 slab. Shall I update dependencies?"
+- Include a working text input field at the bottom. When the user types and hits enter, append their message to the chat, show a simulated "typing" indicator, and append a mock AI response after 1.5 seconds.
+
+Code Constraints:
+- Keep everything in a single file if possible, or structure it cleanly with standard React functional components and hooks (useState, useEffect, useRef).
+- Do not use alert() or confirm(). Use modern UI patterns.
+- Ensure all charts and the 3D canvas resize perfectly on window resize.
+- Populate the app with highly realistic dummy data (real construction terms like 'curing', 'rebar', 'Gantt dependencies').
